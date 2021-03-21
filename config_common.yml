@@ -1,48 +1,66 @@
 #登陆相关配置
 login:
-  #开放的模拟登陆api服务器地址 
+  #开放的模拟登陆api服务器地址
   api: "http://www.zimo.wiki:8080/wisedu-unified-login-api-v1.0/api/login"
-
+#用户组配置
+users:
+  #单个用户配置
+  - user:
+      #username 学号或者工号
+      username: 171101013
+      #password 密码
+      password: hejundemima1999
+      #address 地址，定位信息
+      address: 中国四川省南充市嘉陵区
+      #email 接受通知消息的邮箱
+      email: 1747965310@qq.com
+      #school 学校全称
+      school: 宜宾学院
+    
+#多用户配置，将下面的注释去掉即可，如果有表单内容有图片，不建议使用多用户配置
+#  - user:
+#      #username 学号或者工号
+#      username: 161105024
+#      #password 密码
+#      password: 161105024
+#      #address 地址
+#      address: 中国四川省成都市金牛区一环路北1段-129号-附9号
+#      #email 接受通知消息的邮箱
+#      email: 461009747@qq.com
+#      school: 宜宾学院
 #今日校园相关配置
 cpdaily:
   #表单组默认选项配置
   defaults:
+    #表单默认选项配置，按顺序，注意，只有标必填项的才处理
     - default:
-        #表单项标题
-        title: 今天你的所在地是？
-        #表单项类型，对应今日校园接口返回的fieldType字段，1代表文本，2代表单选，3代表多选，4代表图片
+        #表单项类型，对应今日校园接口返回的fieldType字段，1、5代表文本，2代表单选，3代表多选，4代表图片
         type: 1
-        #表单项默认值, 三级选项选择用 '/' 分隔
-        value: 福建省/福州市/仓山区
+        #表单项标题
+        title: 今日具体所在地
+        #表单项默认值
+        value: 四川省/南充市/嘉陵区
     - default:
-        title: 今天你的体温是多少？
         type: 2
-        value: 37.2℃及以下
-    - default:
-        title: 今天你的身体状况是？
-        type: 2
-        value: 健康
-    - default:
-        title: 近14天你或你的共同居住人是否有疫情中、高风险区域人员接触史？
-        type: 2
+        title: 是否在校
         value: 否
     - default:
-        title: 近14天你或你的共同居住人是否和确诊、疑似病人接触过？
+        type: 5
+        title: 上午体温
+        value: 36.6
+    - default:
+        type: 5
+        title: 下午体温
+        value: 36.6
+    - default:
+        type: 5
+        title: 晚上体温
+        value: 36.6
+    - default:
         type: 2
+        title: 身体状况
+        value: 身体健康
+    - default:
+        type: 2
+        title: 是否今日返校？
         value: 否
-    - default:
-        title: 近14天你或你的共同居住人是否是确诊、疑似病例？
-        type: 2
-        value: 否
-    - default:
-        title: 你或你的共同居住人目前是否被医学隔离？
-        type: 2
-        value: 否
-    - default:
-        title: 今天你当地的健康码颜色是？
-        type: 2
-        value: 绿色
-    - default:
-        title: 本人是否承诺以上所填报的全部内容均属实、准确，不存在任何隐瞒与不实的情况，更无遗漏之处    
-        type: 2
-        value: 是
